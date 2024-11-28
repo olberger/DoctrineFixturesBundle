@@ -20,7 +20,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use function assert;
 use function implode;
 use function sprintf;
-use function trigger_deprecation;
 
 /**
  * Load data fixtures from bundles.
@@ -30,19 +29,9 @@ class LoadDataFixturesDoctrineCommand extends DoctrineCommand
     /** @param PurgerFactory[] $purgerFactories */
     public function __construct(
         private SymfonyFixturesLoader $fixturesLoader,
-        ManagerRegistry|null $doctrine = null,
+        ManagerRegistry $doctrine,
         private array $purgerFactories = [],
     ) {
-        if ($doctrine === null) {
-            trigger_deprecation(
-                'doctrine/fixtures-bundle',
-                '3.2',
-                'Argument 2 of %s() expects an instance of %s, not passing it will throw a \TypeError in DoctrineFixturesBundle 4.0.',
-                __METHOD__,
-                ManagerRegistry::class,
-            );
-        }
-
         parent::__construct($doctrine);
     }
 
