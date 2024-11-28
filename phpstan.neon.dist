@@ -1,9 +1,12 @@
 parameters:
     phpVersion: 80100
-    level: 3
+    level: 7
     paths:
         - src
         - tests
+    excludePaths:
+        # Contains an issue that cannot be ignored
+        - tests/IntegrationTest.php
 
 includes:
     - phpstan-baseline.neon
