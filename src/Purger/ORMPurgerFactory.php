@@ -7,6 +7,7 @@ namespace Doctrine\Bundle\FixturesBundle\Purger;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\ORM\EntityManagerInterface;
 
+/** @template-implements PurgerFactory<ORMPurger> */
 final class ORMPurgerFactory implements PurgerFactory
 {
     /**

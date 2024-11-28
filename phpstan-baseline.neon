@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method class@anonymous/src/Command/LoadDataFixturesDoctrineCommand\\.php\\:121\\:\\:log\\(\\) has parameter \\$message with no type specified\\.$#"
+			message: "#^Method class@anonymous/src/Command/LoadDataFixturesDoctrineCommand\\.php\\:120\\:\\:log\\(\\) has parameter \\$message with no type specified\\.$#"
 			count: 1
 			path: src/Command/LoadDataFixturesDoctrineCommand.php
 

@@ -10,7 +10,6 @@ use Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader;
 use Doctrine\Bundle\FixturesBundle\Purger\ORMPurgerFactory;
 use Doctrine\Bundle\FixturesBundle\Purger\PurgerFactory;
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
-use Doctrine\Common\DataFixtures\Purger\ORMPurgerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Psr\Log\AbstractLogger;
@@ -32,6 +31,7 @@ class LoadDataFixturesDoctrineCommand extends DoctrineCommand
     public function __construct(
         private SymfonyFixturesLoader $fixturesLoader,
         ManagerRegistry $doctrine,
+        /** @var array<string, ORMPurgerFactory> $purgerFactories */
         private array $purgerFactories = [],
     ) {
         parent::__construct($doctrine);
@@ -110,13 +110,12 @@ class LoadDataFixturesDoctrineCommand extends DoctrineCommand
             $factory = $this->purgerFactories[$input->getOption('purger')];
         }
 
-        $purger = $factory->createForEntityManager(
+        $purger   = $factory->createForEntityManager(
             $input->getOption('em'),
             $em,
             $input->getOption('purge-exclusions'),
             $input->getOption('purge-with-truncate'),
         );
-        assert($purger instanceof ORMPurgerInterface);
         $executor = new ORMExecutor($em, $purger);
         $executor->setLogger(new class ($ui) extends AbstractLogger {
             public function __construct(private SymfonyStyle $ui)

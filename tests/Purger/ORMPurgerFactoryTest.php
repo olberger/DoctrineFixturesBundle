@@ -10,8 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-use function assert;
-
 class ORMPurgerFactoryTest extends TestCase
 {
     private ORMPurgerFactory $factory;
@@ -28,9 +26,7 @@ class ORMPurgerFactoryTest extends TestCase
     public function testCreateDefault(): void
     {
         $purger = $this->factory->createForEntityManager(null, $this->em);
-        assert($purger instanceof ORMPurger);
 
-        self::assertInstanceOf(ORMPurger::class, $purger);
         self::assertSame(ORMPurger::PURGE_MODE_DELETE, $purger->getPurgeMode());
         self::assertSame([], (function () {
             return $this->excluded;
@@ -40,9 +36,7 @@ class ORMPurgerFactoryTest extends TestCase
     public function testCreateWithExclusions(): void
     {
         $purger = $this->factory->createForEntityManager(null, $this->em, ['tableName']);
-        assert($purger instanceof ORMPurger);
 
-        self::assertInstanceOf(ORMPurger::class, $purger);
         self::assertSame(ORMPurger::PURGE_MODE_DELETE, $purger->getPurgeMode());
         self::assertSame(['tableName'], (function () {
             return $this->excluded;
@@ -52,9 +46,7 @@ class ORMPurgerFactoryTest extends TestCase
     public function testCreateWithTruncate(): void
     {
         $purger = $this->factory->createForEntityManager(null, $this->em, [], true);
-        assert($purger instanceof ORMPurger);
 
-        self::assertInstanceOf(ORMPurger::class, $purger);
         self::assertSame(ORMPurger::PURGE_MODE_TRUNCATE, $purger->getPurgeMode());
         self::assertSame([], (function () {
             return $this->excluded;
