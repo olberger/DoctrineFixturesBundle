@@ -1,9 +1,10 @@
 parameters:
-	excludePaths:
-		# Contains an error that is impossible to ignore
-		- tests/IntegrationTest.php
-
 	ignoreErrors:
+		-
+			message: "#^Method class@anonymous/src/Command/LoadDataFixturesDoctrineCommand\\.php\\:140\\:\\:log\\(\\) has parameter \\$message with no type specified\\.$#"
+			count: 1
+			path: src/Command/LoadDataFixturesDoctrineCommand.php
+
 		-
 			message: "#^Call to an undefined method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyFixturesLoader\\:\\:getFixture\\(\\)\\.$#"
 			count: 1
@@ -20,11 +21,26 @@ parameters:
 			path: src/Loader/SymfonyFixturesLoader.php
 
 		-
+			message: "#^Method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyFixturesLoader\\:\\:createFixture\\(\\) has parameter \\$class with no type specified\\.$#"
+			count: 1
+			path: src/Loader/SymfonyFixturesLoader.php
+
+		-
 			message: "#^Class Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyFixturesLoader does not have a constructor and must be instantiated without any parameters\\.$#"
 			count: 2
+			path: tests/Command/LoadDataFixturesDoctrineCommandTest.php
+
+		-
+			message: "#^Dead catch \\- TypeError is never thrown in the try block\\.$#"
+			count: 1
 			path: tests/Command/LoadDataFixturesDoctrineCommandTest.php
 
 		-
 			message: "#^Constructor of class Doctrine\\\\Bundle\\\\FixturesBundle\\\\Tests\\\\Fixtures\\\\FooBundle\\\\DataFixtures\\\\RequiredConstructorArgsFixtures has an unused parameter \\$fooRequiredArg\\.$#"
 			count: 1
 			path: tests/Fixtures/FooBundle/DataFixtures/RequiredConstructorArgsFixtures.php
+
+		-
+			message: "#^Method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Tests\\\\IntegrationTestKernel\\:\\:registerBundles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/IntegrationTestKernel.php
