@@ -1,3 +1,12 @@
+UPGRADE to 4.0
+==============
+
+## Mandatory ManagerRegistry argument
+
+It is now mandatory to pass a `ManagerRegistry` instance to the constructor of
+`Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand`.
+
+
 UPGRADE to 3.0
 ==============
 
