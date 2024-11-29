@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Purger;
+namespace Doctrine\Bundle\FixturesBundle\Tests\Purger;
 
 use Doctrine\Bundle\FixturesBundle\Purger\ORMPurgerFactory;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
