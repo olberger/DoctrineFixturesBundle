@@ -1,6 +1,21 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method class@anonymous/src/Command/LoadDataFixturesDoctrineCommand\\.php\\:121\\:\\:log\\(\\) has parameter \\$message with no type specified\\.$#"
+			count: 1
+			path: src/Command/LoadDataFixturesDoctrineCommand.php
+
+		-
+			message: "#^Method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyFixturesLoader\\:\\:createFixture\\(\\) has parameter \\$class with no type specified\\.$#"
+			count: 1
+			path: src/Loader/SymfonyFixturesLoader.php
+
+		-
 			message: "#^Constructor of class Doctrine\\\\Bundle\\\\FixturesBundle\\\\Tests\\\\Fixtures\\\\FooBundle\\\\DataFixtures\\\\RequiredConstructorArgsFixtures has an unused parameter \\$fooRequiredArg\\.$#"
 			count: 1
 			path: tests/Fixtures/FooBundle/DataFixtures/RequiredConstructorArgsFixtures.php
+
+		-
+			message: "#^Method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Tests\\\\IntegrationTestKernel\\:\\:registerBundles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/IntegrationTestKernel.php
