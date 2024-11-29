@@ -1,46 +1,55 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method class@anonymous/src/Command/LoadDataFixturesDoctrineCommand\\.php\\:140\\:\\:log\\(\\) has parameter \\$message with no type specified\\.$#"
+			message: '#^Method Psr\\Log\\AbstractLogger@anonymous/src/Command/LoadDataFixturesDoctrineCommand\.php\:140\:\:log\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: src/Command/LoadDataFixturesDoctrineCommand.php
 
 		-
-			message: "#^Call to an undefined method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyFixturesLoader\\:\\:getFixture\\(\\)\\.$#"
+			message: '#^Call to an undefined method Doctrine\\Bundle\\FixturesBundle\\Loader\\SymfonyFixturesLoader\:\:getFixture\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: src/Loader/SymfonyFixturesLoader.php
 
 		-
-			message: "#^Call to an undefined static method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyBridgeLoader\\:\\:addFixture\\(\\)\\.$#"
+			message: '#^Call to an undefined static method Doctrine\\Bundle\\FixturesBundle\\Loader\\SymfonyBridgeLoader\:\:addFixture\(\)\.$#'
+			identifier: staticMethod.notFound
 			count: 1
 			path: src/Loader/SymfonyFixturesLoader.php
 
 		-
-			message: "#^Call to an undefined static method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyBridgeLoader\\:\\:getFixtures\\(\\)\\.$#"
+			message: '#^Call to an undefined static method Doctrine\\Bundle\\FixturesBundle\\Loader\\SymfonyBridgeLoader\:\:getFixtures\(\)\.$#'
+			identifier: staticMethod.notFound
 			count: 1
 			path: src/Loader/SymfonyFixturesLoader.php
 
 		-
-			message: "#^Method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyFixturesLoader\\:\\:createFixture\\(\\) has parameter \\$class with no type specified\\.$#"
+			message: '#^Method Doctrine\\Bundle\\FixturesBundle\\Loader\\SymfonyFixturesLoader\:\:createFixture\(\) has parameter \$class with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: src/Loader/SymfonyFixturesLoader.php
 
 		-
-			message: "#^Class Doctrine\\\\Bundle\\\\FixturesBundle\\\\Loader\\\\SymfonyFixturesLoader does not have a constructor and must be instantiated without any parameters\\.$#"
+			message: '#^Class Doctrine\\Bundle\\FixturesBundle\\Loader\\SymfonyFixturesLoader does not have a constructor and must be instantiated without any parameters\.$#'
+			identifier: new.noConstructor
 			count: 2
 			path: tests/Command/LoadDataFixturesDoctrineCommandTest.php
 
 		-
-			message: "#^Dead catch \\- TypeError is never thrown in the try block\\.$#"
+			message: '#^Dead catch \- TypeError is never thrown in the try block\.$#'
+			identifier: catch.neverThrown
 			count: 1
 			path: tests/Command/LoadDataFixturesDoctrineCommandTest.php
 
 		-
-			message: "#^Constructor of class Doctrine\\\\Bundle\\\\FixturesBundle\\\\Tests\\\\Fixtures\\\\FooBundle\\\\DataFixtures\\\\RequiredConstructorArgsFixtures has an unused parameter \\$fooRequiredArg\\.$#"
+			message: '#^Constructor of class Doctrine\\Bundle\\FixturesBundle\\Tests\\Fixtures\\FooBundle\\DataFixtures\\RequiredConstructorArgsFixtures has an unused parameter \$fooRequiredArg\.$#'
+			identifier: constructor.unusedParameter
 			count: 1
 			path: tests/Fixtures/FooBundle/DataFixtures/RequiredConstructorArgsFixtures.php
 
 		-
-			message: "#^Method Doctrine\\\\Bundle\\\\FixturesBundle\\\\Tests\\\\IntegrationTestKernel\\:\\:registerBundles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Doctrine\\Bundle\\FixturesBundle\\Tests\\IntegrationTestKernel\:\:registerBundles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: tests/IntegrationTestKernel.php
