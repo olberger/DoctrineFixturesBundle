@@ -39,8 +39,7 @@
     "require-dev": {
         "doctrine/coding-standard": "^12",
         "phpstan/phpstan": "^2",
-        "phpunit/phpunit": "^9.6.13",
-        "symfony/phpunit-bridge": "^6.3.6"
+        "phpunit/phpunit": "^10.5.38 || ^11"
     },
     "conflict": {
         "doctrine/dbal": "< 3"
